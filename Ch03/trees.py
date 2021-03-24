@@ -61,7 +61,7 @@ def majorityCnt(classList):
     for vote in classList:
         if vote not in classCount.keys(): classCount[vote] = 0
         classCount[vote] += 1
-    sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True)
+    sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(1), reverse=True)
     return sortedClassCount[0][0]
 
 def createTree(dataSet,labels):
@@ -82,7 +82,7 @@ def createTree(dataSet,labels):
     return myTree                            
     
 def classify(inputTree,featLabels,testVec):
-    firstStr = inputTree.keys()[0]
+    firstStr = list(inputTree.keys())[0]
     secondDict = inputTree[firstStr]
     featIndex = featLabels.index(firstStr)
     key = testVec[featIndex]
